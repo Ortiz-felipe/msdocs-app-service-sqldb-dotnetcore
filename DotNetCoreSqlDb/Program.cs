@@ -15,6 +15,7 @@ options.Configuration = builder.Configuration["AZURE_REDIS_CONNECTIONSTRING"];
 options.InstanceName = "SampleInstance";
 });
 
+builder.Services.AddControllersWithViews();
 builder.Services.AddAuthorization();
 
 // Add App Service logging
