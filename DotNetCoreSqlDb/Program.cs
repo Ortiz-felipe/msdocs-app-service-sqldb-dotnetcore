@@ -9,7 +9,11 @@ builder.Services.AddDbContext<MyDatabaseContext>(options =>
 builder.Services.AddDistributedMemoryCache();
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+options.Configuration = builder.Configuration["AZURE_REDIS_CONNECTIONSTRING"];
+options.InstanceName = "SampleInstance";
+});
 
 // Add App Service logging
 builder.Logging.AddAzureWebAppDiagnostics();
